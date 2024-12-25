@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "skycast weather extension",
+  "version": "1.0.0",
+  "description": "A weather chrome extension",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "React extension"
+  },
+  "options_page": "options.html",
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}
