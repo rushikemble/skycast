@@ -1,11 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "skycast weather extension",
+  "name": "Skycast",
   "version": "1.0.0",
   "description": "A weather chrome extension",
   "action": {
     "default_popup": "popup.html",
-    "default_title": "React extension"
+    "default_title": "React extension",
+    "default_icon": {
+      "16": "./icon.png",
+      "48": "./icon.png",
+      "128": "./icon.png"
+    }
   },
   "options_page": "options.html",
 
