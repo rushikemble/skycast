@@ -23,5 +23,6 @@
   "background": {
     "service_worker": "background.js",
     "type": "module"
-  }
+  },
+  "permissions": ["storage", "activeTab", "scripting"]
 }

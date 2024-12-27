@@ -23,11 +23,12 @@ export interface OpenWeatherData {
 }
 export async function fetchWeatherData(city: string) {
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${OPEN_WEATHER_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${OPEN_WEATHER_API_KEY}&units=metric`
   );
   if (!response.ok) {
     throw new Error('Failed to fetch weather data');
   }
   const data: OpenWeatherData = await response.json();
+  console.log(data);
   return data;
 }
