@@ -7,16 +7,27 @@ import Paper from '@mui/material/Paper';
 import { InputBase, IconButton, Box } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import Grid from '@mui/material/Grid2';
-import { setStoredCities, getStoredCities } from '../utils/storage';
+import {
+  setStoredCities,
+  getStoredCities,
+  getStoredOptions,
+  LocalStorageOptions,
+} from '../utils/storage';
 
 const App: React.FC<{}> = () => {
   const [cities, setCities] = useState<string[]>([]);
   const [cityInput, setcityInput] = useState<string>('');
-
+  console.log('cities', cities);
   useEffect(() => {
     getStoredCities().then((cities) => {
       if (Array.isArray(cities)) {
-        setCities(cities);
+        getStoredOptions().then((options) => {
+          const { homeCity } = options;
+          const updatedCities = [...cities, homeCity ?? ''];
+          // setStoredCities(updatedCities).then(() => {
+          setCities(homeCity ? updatedCities : cities);
+          // });
+        });
       }
     });
   }, []);
